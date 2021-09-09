@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func hashfunction() {
 	hashFunction := sha256.New()
 	hashFunction.Write([]byte("12345"))
 	fmt.Printf("%x \n", hashFunction.Sum(nil))
