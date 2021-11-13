@@ -1,23 +1,25 @@
 package main
 
 import (
+	"bytes"
 	"crypto/sha256"
 	"fmt"
-	"bytes"
 )
+
 //なぜこういう書き方でいけるの？
 //構造体を定義
 type Block struct {
-		Index int
-		Data  string
-		Hash  []byte
-	}
+	Index int
+	Data  string
+	Hash  []byte
+}
 
 //構造体配列を定義
 type BlockArray []*Block
+
 var hashChain BlockArray
 
-func main()  {
+func main() {
 	Array := [...]string{"0001", "0002", "0003", "0004"}
 	go createHashChain(Array[:], hashChain)
 	createHashChain(Array[:], hashChain)
