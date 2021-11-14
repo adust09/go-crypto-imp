@@ -1,12 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"crypto/sha256"
 	"fmt"
-	"bytes"
 )
 
-func main(){
+func main() {
 	//init difficulty
 	h := sha256.New()
 	h.Write([]byte("100000"))
@@ -16,7 +16,7 @@ func main(){
 	//init input
 	input := []byte("0")
 
-	for i := 0; i < 100;  {
+	for i := 0; i < 100; {
 		h := sha256.New()
 		fmt.Printf("index = %x \n", byte(i))
 		//create nonce
@@ -27,7 +27,7 @@ func main(){
 		if bytes.Compare(result, difficulty) <= 0 {
 			fmt.Printf("founded result is %x \n", result)
 			break
-		}else{
+		} else {
 			i++
 			input = append(input, byte(i))
 		}
